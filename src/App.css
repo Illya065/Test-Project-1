@@ -1,38 +1,183 @@
-.App {
-  text-align: center;
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
+/* Выставляем основные настройки по-умолчанию для body */
+body {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
 }
 
-.App-link {
-  color: #61dafb;
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+body {
+   font-family: 'Open Sans';
+}
+
+.container {
+   max-width: 600px;
+   padding: 0 15px;
+   margin: 0  auto;;
+}
+
+.header p {
+   text-align: center;
+   font-size: 39px;
+   font-weight: 700;
+   margin-top: 90px;
+   margin-bottom: 85px;
+}
+
+.form {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border: 2px solid #7f7f7f;
+   padding: 2px 2px 2px 10px;
+   border-radius: 30px;
+   margin-bottom: 25px;
+}
+
+.form input {
+   width: 100%;
+   border: none;
+   color: #b8b8b8;
+}
+
+.form input:focus {
+   outline: none;
+}
+
+.form button {
+   background-color: #3faf6c;
+   height: 45px;
+   width: 45px;
+   border-radius: 50%;
+   border: none;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+}
+
+.form img {
+   width: 30px;
+   height: 30px;
+}
+
+.item {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background-color: #fdfdf6;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+   line-height: 4.5rem;
+   padding: 0px 15px;
+}
+
+.item__name {
+   font-weight: 700;
+}
+
+.item__time {
+   font-weight: 700;
+   margin-right: 40px;
+}
+
+.item__play {
+   height: 32px;
+   width: 32px;
+   background: url('./_img/baseline_play_circle_outline_black_36dp.png')center / contain no-repeat;
+   margin-right: 15px;
+}
+
+.item__stop {
+   height: 32px;
+   width: 32px;
+   background: url('./_img/baseline_pause_circle_outline_black_36dp.png')center / contain no-repeat;
+   margin-right: 15px;
+}
+
+.item__delete {
+   height: 32px;
+   width: 32px;
+   background: url('./_img/baseline_remove_circle_outline_black_36dp.png')center / contain no-repeat;
+}
+
+.item__manage {
+   display: flex;
+   align-items: center;
+}
+
+.active {
+  color:#3faf6c 
 }
