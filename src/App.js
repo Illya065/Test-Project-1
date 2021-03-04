@@ -1,12 +1,17 @@
 import "./App.css";
+import Form from "./_components/Form/Form";
 import Header from "./_components/Header/Header";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <div className="container">
+        <div className="content">
+          <Header />
 
-      <Form />
+          <Form />
+        </div>
+      </div>
     </div>
   );
 }
