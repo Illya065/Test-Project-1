@@ -182,6 +182,10 @@ body {
   color:#3faf6c 
 }
 
+.d-none {
+   display: none;
+}
+
 @media(max-width: 445px) {
    .header p{
       margin: 45px 0px;

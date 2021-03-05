@@ -4,8 +4,16 @@ const ListItem = (props) => {
   const changeState = () => {
     props.setState(!props.isActive, props.id);
   };
+
+  const deleteItem = () => {
+    props.deleteItem(!props.delete, props.id);
+  };
   return (
-    <li className={`item ${props.isActive ? "active" : "unactive"}`}>
+    <li
+      className={`${props.delete ? "d-none" : "item"} ${
+        props.isActive ? "active" : "unactive"
+      }`}
+    >
       <div className="item__name">{props.name}</div>
       <div className="item__manage">
         <div className="item__time">{props.time}</div>
@@ -13,7 +21,7 @@ const ListItem = (props) => {
           className={props.isActive ? "item__stop" : "item__play"}
           onClick={changeState}
         ></div>
-        <div className="item__delete"></div>
+        <div className="item__delete" onClick={deleteItem}></div>
       </div>
     </li>
   );

@@ -5,9 +5,11 @@ const List = (props) => {
   let arr = Object.values(props.itemList).map((i) => (
     <ListItem
       isActive={i.isActive}
+      delete={i.delete}
       name={i.name}
       time={i.time}
       setState={props.setState}
+      deleteItem={props.deleteItem}
       id={i.id}
     />
   ));
@@ -21,7 +23,7 @@ const List = (props) => {
   //     />
   //   ));
 
-  return <ul className="list">{arr}</ul>;
+  return <ul className="list">{arr.reverse()}</ul>;
 };
 
 export default List;

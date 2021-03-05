@@ -1,5 +1,5 @@
 import "./App.css";
-import Form from "./_components/Form/Form";
+import FormContainer from "./_components/Form/Form";
 import Header from "./_components/Header/Header";
 import ListContainer from "./_components/List/ListContainer";
 
@@ -10,7 +10,7 @@ function App() {
         <div className="content">
           <Header />
 
-          <Form />
+          <FormContainer />
 
           <ListContainer />
         </div>
