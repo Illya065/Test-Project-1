@@ -1,7 +1,7 @@
 import "./App.css";
-import Form from "./_components/Form/Form";
+import FormContainer from "./_components/Form/Form";
 import Header from "./_components/Header/Header";
-import List from "./_components/List/List";
+import ListContainer from "./_components/List/ListContainer";
 
 function App() {
   return (
@@ -10,9 +10,9 @@ function App() {
         <div className="content">
           <Header />
 
-          <Form />
+          <FormContainer />
 
-          <List />
+          <ListContainer />
         </div>
       </div>
     </div>

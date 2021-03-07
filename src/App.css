@@ -181,3 +181,38 @@ body {
 .active {
   color:#3faf6c 
 }
+
+.d-none {
+   display: none;
+}
+
+@media(max-width: 445px) {
+   .header p{
+      margin: 45px 0px;
+   }
+
+   .item__name {
+      font-weight: 400;
+      font-size: 14px;
+   }
+
+   .item__time {
+      margin-right: 10px;
+      font-size: 14px;
+   }
+
+   .item__play {
+      width: 27px;
+      height: 27px;
+      margin-right: 5px;
+   }
+
+   .item__delete {
+      height: 27px;
+      width: 27px;
+   }
+
+   .item__stop {
+      margin-right: 5px;
+   }
+}
