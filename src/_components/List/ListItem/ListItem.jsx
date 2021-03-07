@@ -1,18 +1,11 @@
 import React from "react";
-import moment from "moment";
 import { useStopwatch } from "react-timer-hook";
 import TimeContainer from "./Time";
 
 const ListItem = (props) => {
-  const {
-    seconds,
-    minutes,
-    hours,
-    isRunning,
-    start,
-    pause,
-    reset,
-  } = useStopwatch({ autoStart: true });
+  const { seconds, minutes, hours, start, pause } = useStopwatch({
+    autoStart: true,
+  });
 
   const changeState = () => {
     props.setState(!props.isActive, props.id);

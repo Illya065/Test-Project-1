@@ -8,9 +8,6 @@ let initialState = {
   data: {},
 };
 
-const dataJSON = localStorage.getItem("state");
-let data = JSON.parse(dataJSON);
-
 const trackerReducer = (state = initialState, action) => {
   let stateCopy = JSON.parse(JSON.stringify(state));
   switch (action.type) {
@@ -41,7 +38,6 @@ const trackerReducer = (state = initialState, action) => {
       };
 
     case ADD_NAME:
-      let len = Object.keys(state.itemList).length;
       let block = {
         isActive: true,
         name: action.text,
@@ -56,10 +52,6 @@ const trackerReducer = (state = initialState, action) => {
 
     case SET_TIME:
       let setTimeId = action.id;
-      localStorage.setItem("state", JSON.stringify(state.itemList));
-      const dataJSON = localStorage.getItem("state");
-      let data = JSON.parse(dataJSON);
-      initialState.data = data;
       return {
         ...state,
         itemList: {

@@ -4,15 +4,19 @@ import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import play from "../../_img/play.png";
 import { addName } from "../../_redux/trackerReducer";
+import { maxLengthCreator } from "../../_validator/validator";
+
+let maxLength = maxLengthCreator(15);
 
 const Form = (props) => {
   return (
     <form className="form" onSubmit={props.handleSubmit}>
       <Field
         type="text"
-        placeholder="Enter name"
+        placeholder={"Enter name"}
         component="input"
         name="name"
+        validate={[maxLength]}
       />
       <button>
         <img className="btn__img" src={play} alt="none" />

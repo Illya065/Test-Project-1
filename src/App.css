@@ -108,7 +108,7 @@ body {
 }
 
 .form input {
-   width: 100%;
+   width: 90%;
    border: none;
    color: #b8b8b8;
 }
@@ -207,12 +207,14 @@ body {
       margin-right: 5px;
    }
 
+   .item__stop {
+      width: 27px;
+      height: 27px;
+      margin-right: 5px;
+   }
+
    .item__delete {
       height: 27px;
       width: 27px;
-   }
-
-   .item__stop {
-      margin-right: 5px;
    }
 }

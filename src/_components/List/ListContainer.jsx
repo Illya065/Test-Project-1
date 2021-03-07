@@ -1,4 +1,3 @@
-import React from "react";
 import List from "./List";
 import { connect } from "react-redux";
 import { deleteItem, setState, timeToState } from "../../_redux/trackerReducer";
