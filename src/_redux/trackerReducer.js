@@ -1,16 +1,19 @@
 const START_STATE = "START_STATE";
 const ADD_NAME = "ADD_NAME";
 const DELETE_ITEM = "DELETE_ITEM";
+const SET_TIME = "SET_TIME";
 
 let initialState = {
   itemList: {
-    0: {
-      id: 0,
-      isActive: false,
-      name: "Empty",
-      time: "11:22:33",
-      delete: false,
-    },
+    //  0: {
+    //    id: 0,
+    //    isActive: true,
+    //    name: "Empty",
+    //    sec: 0,
+    //    minute: 0,
+    //    hour: 0,
+    //    delete: false,
+    //  },
   },
 
   text: null,
@@ -48,14 +51,31 @@ const trackerReducer = (state = initialState, action) => {
     case ADD_NAME:
       let len = Object.keys(state.itemList).length;
       let block = {
-        isActive: false,
+        isActive: true,
         name: action.text,
-        time: "00:00:00",
-        id: len,
+        sec: 0,
+        minute: 0,
+        hour: 0,
+        id: Object.keys(state.itemList).length,
         delete: false,
       };
-      stateCopy.itemList[len] = block;
+      stateCopy.itemList[Object.keys(state.itemList).length] = block;
       return stateCopy;
+
+    case SET_TIME:
+      let setTimeId = action.id;
+      return {
+        ...state,
+        itemList: {
+          ...state.itemList,
+          [action.id]: {
+            ...state.itemList[setTimeId],
+            sec: action.sec,
+            minute: action.min,
+            hour: action.hour,
+          },
+        },
+      };
 
     default:
       return state;
@@ -81,6 +101,16 @@ export const deleteItem = (del, id) => {
   return {
     type: DELETE_ITEM,
     del,
+    id,
+  };
+};
+
+export const timeToState = (sec, min, hour, id) => {
+  return {
+    type: SET_TIME,
+    sec,
+    min,
+    hour,
     id,
   };
 };

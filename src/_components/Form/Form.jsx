@@ -5,6 +5,7 @@ import play from "../../_img/play.png";
 import { addName } from "../../_redux/trackerReducer";
 
 const Form = (props) => {
+   
   return (
     <form className="form" onSubmit={props.handleSubmit}>
       <Field

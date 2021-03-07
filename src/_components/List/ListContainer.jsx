@@ -1,7 +1,7 @@
 import React from "react";
 import List from "./List";
 import { connect } from "react-redux";
-import { deleteItem, setState } from "../../_redux/trackerReducer";
+import { deleteItem, setState, timeToState } from "../../_redux/trackerReducer";
 
 const mapDispatchToProps = (state) => {
   return {
@@ -10,8 +10,10 @@ const mapDispatchToProps = (state) => {
   };
 };
 
-const ListContainer = connect(mapDispatchToProps, { setState, deleteItem })(
-  List
-);
+const ListContainer = connect(mapDispatchToProps, {
+  setState,
+  deleteItem,
+  timeToState,
+})(List);
 
 export default ListContainer;
