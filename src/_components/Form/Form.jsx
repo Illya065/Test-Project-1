@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
@@ -5,7 +6,6 @@ import play from "../../_img/play.png";
 import { addName } from "../../_redux/trackerReducer";
 
 const Form = (props) => {
-   
   return (
     <form className="form" onSubmit={props.handleSubmit}>
       <Field
@@ -27,7 +27,11 @@ const ReduxForm = reduxForm({
 
 const NewForm = (props) => {
   let addNewName = (value) => {
-    props.addName(value.name);
+    if (value.name) {
+      props.addName(value.name);
+    } else {
+      props.addName(moment().format("LTS"));
+    }
   };
   return <ReduxForm onSubmit={addNewName} />;
 };

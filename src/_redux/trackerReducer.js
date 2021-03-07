@@ -4,20 +4,12 @@ const DELETE_ITEM = "DELETE_ITEM";
 const SET_TIME = "SET_TIME";
 
 let initialState = {
-  itemList: {
-    //  0: {
-    //    id: 0,
-    //    isActive: true,
-    //    name: "Empty",
-    //    sec: 0,
-    //    minute: 0,
-    //    hour: 0,
-    //    delete: false,
-    //  },
-  },
-
-  text: null,
+  itemList: {},
+  data: {},
 };
+
+const dataJSON = localStorage.getItem("state");
+let data = JSON.parse(dataJSON);
 
 const trackerReducer = (state = initialState, action) => {
   let stateCopy = JSON.parse(JSON.stringify(state));
@@ -64,6 +56,10 @@ const trackerReducer = (state = initialState, action) => {
 
     case SET_TIME:
       let setTimeId = action.id;
+      localStorage.setItem("state", JSON.stringify(state.itemList));
+      const dataJSON = localStorage.getItem("state");
+      let data = JSON.parse(dataJSON);
+      initialState.data = data;
       return {
         ...state,
         itemList: {
